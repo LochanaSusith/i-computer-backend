@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import userRouter from './routes/userRouter.js';
 import productRouter from './routes/productRouter.js';
 import authorizeUser from './lib/jwtMiddleware.js';
+import cors from 'cors';
 
 const mongoURL = "mongodb+srv://admin:1234@cluster0.khftfsp.mongodb.net/?appName=Cluster0";
 
@@ -19,7 +20,7 @@ mongoose.connect(mongoURL).then(
 let app = express();
 
 
-
+app.use(cors());
 app.use(express.json());
 
 //authontication part
